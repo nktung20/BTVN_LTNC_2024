@@ -1,28 +1,38 @@
+
+
 #include <iostream>
 #include <string>
 using namespace std;
 
-string caesarCipher(string s, int k) {
-    for (int i = 0; i < int(s.size()); i++) {
-        if (isalpha(s[i])) {
-            if (islower(s[i])) {
-                s[i] = 'a' + (s[i] - 'a' + k) % 26; 
-            } else {
-                s[i] = 'A' + (s[i] - 'A' + k) % 26; 
-            }
-        }
+string timeConversion(string s) {
+    string hour = s.substr(0, 2);
+    int hh = stoi(hour);
+    string meridian = s.substr(8, 2);
+
+    if (meridian == "PM" && hh != 12) {
+        hh += 12;
+    } else if (meridian == "AM" && hh == 12) {
+        hh = 0;
     }
-    return s;
+
+    string ans = (hh < 10 ? "0" : "") + to_string(hh) + s.substr(2, 6);
+    return ans;
 }
 
-int main() {
-    int x;
-    cin >> x;
+
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
     string s;
-    cin.ignore();
     getline(cin, s);
-    int k;
-    cin >> k;
-    cout << caesarCipher(s, k) << endl;
+
+    string result = timeConversion(s);
+
+    fout << result << "\n";
+
+    fout.close();
+
     return 0;
 }
