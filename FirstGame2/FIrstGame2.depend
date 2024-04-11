@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1711546789 source:d:\c++\gameproject\firstgame2\firstgame2\main.cpp
+	<iostream>
+	"SDL.h"
+	"SDL_image.h"
+	"mainFunc.h"
+
+1711330580 d:\c++\gameproject\firstgame2\firstgame2\mainfunc.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+
+1711330622 source:d:\c++\gameproject\firstgame2\firstgame2\mainfunc.cpp
+	"mainFunc.h"
+
